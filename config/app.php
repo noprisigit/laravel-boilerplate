@@ -123,4 +123,11 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Application Admin Template
+    |--------------------------------------------------------------------------
+    */
+
+    'admin_template' => env('ADMIN_TEMPLATE', 'default'),
 ];
