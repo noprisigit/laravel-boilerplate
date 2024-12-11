@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title> @yield('title', config('app.name')) </title>
+<title>{{ config('app.name') }} - @yield('title', __('Beranda')) </title>
 
 <!-- Favicon -->
 <link rel="icon" href="{{ asset(get_admin_template_base_path() . '/images/brand-logos/favicon.ico') }}"
@@ -33,8 +33,11 @@
 
 <!-- Color Picker Css -->
 <link rel="stylesheet" href="{{ asset(get_admin_template_base_path() . '/libs/flatpickr/flatpickr.min.css') }}">
-<link rel="stylesheet" href="{{ asset(get_admin_template_base_path() . '/libs/@simonwep/pickr/themes/nano.min.css') }}">
+<link rel="stylesheet"
+    href="{{ asset(get_admin_template_base_path() . '/libs/@simonwep/pickr/themes/nano.min.css') }}">
 
 <!-- Choices Css -->
 <link rel="stylesheet"
     href="{{ asset(get_admin_template_base_path() . '/libs/choices.js/public/assets/styles/choices.min.css') }}">
+
+@livewireStyles

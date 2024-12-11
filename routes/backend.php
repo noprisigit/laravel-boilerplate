@@ -13,3 +13,7 @@ Route::get('/', function () {
 
     return view($template . '.layouts.app');
 });
+
+Route::prefix('apps')->group(function() {
+    Route::resource('users', \App\Http\Controllers\Backend\UserController::class);
+});
