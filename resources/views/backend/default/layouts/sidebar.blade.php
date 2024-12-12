@@ -96,14 +96,12 @@
                     </ul>
                 </li>
 
-                <!-- Start::slide -->
-                <li class="slide">
-                    <a href="icons.html" class="side-menu__item">
-                        <i class="bx bx-store-alt side-menu__icon"></i>
-                        <span class="side-menu__label">Icons</span>
+                <li class="slide @if (Request::is('apps/permissions*')) active @endif">
+                    <a href="{{ route('permissions.index') }}" class="side-menu__item @if (Request::is('apps/permissions*')) active @endif">
+                        <i class="bx bx-lock-alt side-menu__icon"></i>
+                        <span class="side-menu__label">{{ __('Permission') }}</span>
                     </a>
                 </li>
-                <!-- End::slide -->
             </ul>
             <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
                     width="24" height="24" viewBox="0 0 24 24">

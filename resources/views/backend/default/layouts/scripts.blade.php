@@ -39,3 +39,9 @@
 
 <!-- Custom JS -->
 <script src="{{ asset(get_admin_template_base_path() . '/js/custom.js') }}"></script>
+
+<script>
+    window.addEventListener('closeModal', (event) => {
+        $(`#${event.detail[0].modalId}`).modal('hide');
+    });
+</script>
