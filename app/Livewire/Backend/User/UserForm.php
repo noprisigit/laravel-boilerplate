@@ -76,7 +76,7 @@ class UserForm extends Component
 
         $this->user->update($this->form);
 
-        session()->flash('success', __('Pengguna baru berhasil diperbarui'));
+        session()->flash('success', __('Pengguna berhasil diperbarui'));
 
         $this->redirect(route('users.index'));
     }

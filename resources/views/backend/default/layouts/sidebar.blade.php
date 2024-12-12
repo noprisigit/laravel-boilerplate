@@ -58,7 +58,6 @@
                 <li class="slide__category"><span class="category-name">Maps & Icons</span></li>
                 <!-- End::slide__category -->
 
-                <!-- Start::slide -->
                 <li class="slide has-sub @if (Request::is('apps/users*')) active open @endif">
                     <a href="javascript:void(0);" class="side-menu__item @if (Request::is('apps/users*')) active @endif">
                         <i class="bx bx-user side-menu__icon"></i>
@@ -77,7 +76,25 @@
                         </li>
                     </ul>
                 </li>
-                <!-- End::slide -->
+
+                <li class="slide has-sub @if (Request::is('apps/roles*')) active open @endif">
+                    <a href="javascript:void(0);" class="side-menu__item @if (Request::is('apps/roles*')) active @endif">
+                        <i class="bx bx-key side-menu__icon"></i>
+                        <span class="side-menu__label">{{ __('Role') }}</span>
+                        <i class="fe fe-chevron-right side-menu__angle"></i>
+                    </a>
+                    <ul class="slide-menu child1 @if (Request::is('apps/roles*')) active @endif">
+                        <li class="slide side-menu__label1">
+                            <a href="javascript:void(0)">{{ __('Role') }}</a>
+                        </li>
+                        <li class="slide @if (Request::is('apps/roles')) active @endif">
+                            <a href="{{ route('roles.index') }}" class="side-menu__item @if (Request::is('apps/roles')) active @endif">{{ __('Semua Role') }}</a>
+                        </li>
+                        <li class="slide @if (Request::is('apps/roles/create')) active @endif">
+                            <a href="{{ route('roles.create') }}" class="side-menu__item @if (Request::is('apps/roles/create')) active @endif">{{ __('Tambah Role') }}</a>
+                        </li>
+                    </ul>
+                </li>
 
                 <!-- Start::slide -->
                 <li class="slide">

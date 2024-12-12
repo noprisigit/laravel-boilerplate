@@ -16,4 +16,5 @@ Route::get('/', function () {
 
 Route::prefix('apps')->group(function() {
     Route::resource('users', \App\Http\Controllers\Backend\UserController::class);
+    Route::resource('roles', \App\Http\Controllers\Backend\RoleController::class);
 });
