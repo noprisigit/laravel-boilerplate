@@ -5,6 +5,7 @@ namespace App\Livewire\Backend\User;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Attributes\On;
 
 class UsersTable extends DataTableComponent
@@ -15,8 +16,7 @@ class UsersTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey('id')
-            ->setColumnSelectDisabled()
-            ->setDefaultPerPage(25);
+            ->setColumnSelectDisabled();
     }
 
     public function columns(): array
@@ -30,6 +30,19 @@ class UsersTable extends DataTableComponent
             Column::make(__('Email'), "email")
                 ->sortable()
                 ->searchable(),
+            Column::make('Roles', 'roles_name')
+                ->sortable()
+                ->searchable()
+                ->format(function ($value, $row, Column $column) {
+                    $html = '';
+
+                    collect($row->roles_name)->map(function ($role) use (&$html) {
+                        $html .= '<span class="badge bg-outline-primary">' . $role . '</span> ';
+                    });
+
+                    return $html;
+                })
+                ->html(),
             Column::make(__('Dibuat Pada'), "created_at")
                 ->sortable(),
             Column::make(__('Diperbarui Pada'), "updated_at")

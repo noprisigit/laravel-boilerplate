@@ -42,6 +42,24 @@
                 @enderror
             </div>
         </div>
+        <div class="row mb-3">
+            <label for="form.roles" class="col-sm-2 col-form-label">{{ __('Role') }}</label>
+            <div class="col-sm-10">
+                <div class="@error('form.roles') is-invalid border rounded border-danger @enderror">
+                    <div wire:ignore>
+                        <select wire:model="form.roles" multiple
+                            class="select2 roles @error('form.roles') is-invalid @enderror">
+                            @foreach ($roles as $value => $label)
+                                <option value="{{ $value }}">{{ $label }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                @error('form.roles')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-10 offset-sm-2">
                 <button type="submit" class="btn btn-primary btn-wave" wire:target="{{ $action ?? '' }}"

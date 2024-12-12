@@ -40,4 +40,8 @@
 <link rel="stylesheet"
     href="{{ asset(get_admin_template_base_path() . '/libs/choices.js/public/assets/styles/choices.min.css') }}">
 
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.1/dist/css/tom-select.css" rel="stylesheet">
+
+@stack('css')
+
 @livewireStyles
