@@ -22,6 +22,9 @@ class PermissionsTable extends DataTableComponent
         return [
             Column::make(__('Id'), "id")
                 ->sortable(),
+            Column::make(__('Grup Permission'), 'group_name')
+                ->sortable()
+                ->searchable(),
             Column::make(__('Nama Permission'), 'name')
                 ->sortable()
                 ->searchable(),

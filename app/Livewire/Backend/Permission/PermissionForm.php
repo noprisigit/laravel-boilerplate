@@ -20,6 +20,7 @@ class PermissionForm extends Component
     {
         $this->modal['title'] = '';
         $this->form['name'] = '';
+        $this->form['group_name'] = '';
     }
 
     #[On('permission:create')]
@@ -27,6 +28,7 @@ class PermissionForm extends Component
     {
         $this->modal['title'] = __('Tambah Permission');
         $this->form['name'] = '';
+        $this->form['group_name'] = '';
         $this->action = 'store';
         $this->type = __('Submit');
     }
@@ -34,6 +36,7 @@ class PermissionForm extends Component
     public function store()
     {
         $this->validate([
+            'form.group_name' => ['nullable', 'string', 'max:255'],
             'form.name' => ['required', 'string', 'max:255', 'unique:permissions,name']
         ], [], [
             'form.name' => __('Nama Permission')
@@ -54,6 +57,7 @@ class PermissionForm extends Component
         $this->permission = Permission::query()->findOrFail($id);
         $this->form['id'] = $this->permission->id;
         $this->form['name'] = $this->permission->name;
+        $this->form['group_name'] = $this->permission->group_name;
 
         $this->action = 'update';
         $this->type = __('Perbarui');
@@ -62,6 +66,7 @@ class PermissionForm extends Component
     public function update()
     {
         $this->validate([
+            'form.group_name' => ['nullable', 'string', 'max:255'],
             'form.name' => ['required', 'string', 'max:255', 'unique:permissions,name,' . $this->form['id']]
         ], [], [
             'form.name' => __('Nama Permission')
