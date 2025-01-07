@@ -622,8 +622,16 @@
                                 class="ti ti-wallet fs-18 me-2 op-7"></i>Bal: $7,12,950</a></li>
                     <li><a class="dropdown-item d-flex" href="chat.html"><i
                                 class="ti ti-headset fs-18 me-2 op-7"></i>Support</a></li>
-                    <li><a class="dropdown-item d-flex" href="sign-in-cover.html"><i
-                                class="ti ti-logout fs-18 me-2 op-7"></i>Log Out</a></li>
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a class="dropdown-item d-flex" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                <i class="ti ti-logout fs-18 me-2 op-7"></i>{{ __('Log Out') }}
+                            </a>
+                        </form>
+                    </li>
                 </ul>
             </div>
             <!-- End::header-element -->
